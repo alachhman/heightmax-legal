@@ -21,168 +21,44 @@
   </style>
 </head>
 <body>
-
 <h1>Keeper — Privacy Policy</h1>
-<p class="meta">Effective September 27, 2026.</p>
-
-<p>
-This Privacy Policy describes how the Keeper mobile app ("Keeper", "we", "us") collects, uses, and shares
-your information. It applies to the iOS app published under Apple ID <code>com.antnee.heightmax</code>.
-</p>
-
-<h2>1. Summary</h2>
+<p class="meta">Release candidate prepared October 1, 2026. Not yet published.</p>
+<p>Keeper, operated by Anthony Lachhman, helps you rate selected photos and make AI edits. This policy describes the new rating and editing services and the original photo-coaching tools.</p>
+<h2>What you send</h2>
+<p>You choose the photos to process. Before uploading, Keeper explains the AI processing and asks you to continue. Photo ratings and edit planning send selected photos through our Supabase backend to Google Gemini for visual observations. TypeSafe Jev receives those observations and your selected purpose or proposed change; it does not receive the photo files through this integration.</p>
+<p>When you confirm an edit, Keeper sends the selected photo and edit instruction to Ideogram. The app labels the result as AI-edited. AI can change details you wanted to keep, so compare it with your original before saving or sharing.</p>
+<h2>Information used to run Keeper</h2>
+<table><thead><tr><th>Information</th><th>Use and storage</th></tr></thead><tbody>
+<tr><td>Photos, observations and results</td><td>Photos are processed by the providers described above. Working photos and downloaded results are held on your device. Keeper stores edited outputs in private Supabase Storage for interrupted-job recovery. The result bucket does not store your input photo. Descriptions and scores are processed to return your result.</td></tr>
+<tr><td>Service identifiers</td><td>The new services create an authenticated anonymous session without email registration. Its support ID connects service requests and purchase access. Original coaching tools also use a separate random installation ID. These are identifiers, not a promise that all associated data is anonymous.</td></tr>
+<tr><td>Purchases and edit allowances</td><td>Apple and RevenueCat process purchases and restores. Keeper receives product and transaction information, purchase dates, subscription expiry and store/environment details needed to verify access. Hashed transaction identities and usage records prevent duplicate edit grants across restores. Keeper does not receive your Apple Account password or payment-card details.</td></tr>
+<tr><td>Job and quota records</td><td>Request IDs, provider generation IDs, job status, timestamps, reserved cost and allowance usage support recovery, quota enforcement and prevention of duplicate spending. These are stored on our backend.</td></tr>
+<tr><td>Usage and diagnostics</td><td>When enabled, analytics record app actions and technical context. The new-service event schema includes flow steps, photo counts, outcomes and timing, excluding photo files, descriptions and receipts. Optional Sentry crash reporting runs only in builds configured for it. Service providers may also process operational logs such as IP addresses and request metadata.</td></tr>
+<tr><td>Support messages</td><td>If you contact us, we receive your email address and whatever you include. Send the support ID and problem description; do not send passwords or payment-card details.</td></tr>
+</tbody></table>
+<h2>Storage and removal</h2>
+<p>Downloaded working files and the latest result remain on your device. Unused working files older than 24 hours are eligible for cleanup when the new service screen opens; active files and pending work are protected. This is best-effort local cleanup, not a provider deletion deadline.</p>
+<p>Use “Remove the recovery copy” on an edited result to request deletion of that result from Keeper’s private storage. Failed storage removals are retried by a scheduled worker. Previously issued download links may remain valid for up to five minutes. This does not remove copies saved to Photos, shared copies, provider records, billing records or all service records. It does not cancel a subscription or restore a used edit allowance.</p>
+<p>In versions that offer the new services, Settings → “Delete ratings &amp; editing account” requests removal of the authenticated service identity, its linked rating/job records and edited recovery copies. New processing is blocked after the request. A scheduled worker attempts removal after a 15-minute grace period and retries failed work. The confirmation means your request was accepted, not that deletion has finished. The saved request also prevents this installation from silently creating a replacement account.</p>
+<p>This control does not delete device photos, copies you shared, original-coaching installation records, provider records, RevenueCat records, or separate purchase-allowance and aggregate-spending records. Contact support for requests concerning those records. Account deletion does not cancel an Apple subscription.</p>
+<p>Keeper does not currently promise automatic deletion of all server records after a fixed period. Uninstalling does not delete backend records or cancel Apple subscriptions. Purchase-allowance records and aggregate spending records may remain separately from the service identity. Contact support to request access to or deletion of personal data; we will explain what can be removed and any records that must be retained.</p>
+<h2>Service providers</h2>
 <ul>
-  <li>Keeper does not require an account. A random anonymous device ID is generated and stored on your device. You can view and copy it in Settings → Your data → Anonymous device ID.</li>
-  <li>For analysis or enhancement, Keeper sends your selected photo and random ID to its Supabase backend. Analysis requests also include your Keeper Plus access status, and enhancement requests include the requested edit settings. The backend uses the ID for quota checks and sends the photo and prompt to Google Gemini; Google does not receive Keeper's ID or access status.</li>
-  <li>Keeper does not save uploaded photos in its product database. Google may retain submitted prompts and context, which can include your photo, and responses for up to 55 days for abuse monitoring. Authorized Google staff may review content flagged for policy violations.</li>
-  <li>We never sell your data, and we do not use any of this data for advertising or cross-app tracking.</li>
+<li><a href="https://ai.google.dev/gemini-api/terms">Google Gemini</a>: selected photos and prompts for observations and the original coaching tools.</li>
+<li><a href="https://typesafe.ai/legal/privacy-policy">TypeSafe Jev</a>: textual observations and decision context for ratings and proposed edits.</li>
+<li><a href="https://ideogram.ai/legal/api-tos/">Ideogram</a>: selected photo, edit instruction and generated output. Its API agreement excludes model training on inputs and outputs except content flagged for usage-policy violations.</li>
+<li><a href="https://supabase.com/privacy">Supabase</a>: authentication, request processing, database records and private edited-photo storage.</li>
+<li><a href="https://www.revenuecat.com/privacy">RevenueCat</a> and <a href="https://www.apple.com/legal/privacy/">Apple</a>: purchase processing, validation and restoration.</li>
+<li><a href="https://sentry.io/privacy/">Sentry</a>: optional crash and performance diagnostics when enabled.</li>
 </ul>
-
-<h2>2. Data we collect and process</h2>
-<table>
-  <thead>
-    <tr><th>Data</th><th>How collected</th><th>Why</th><th>Retention</th></tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Photo you choose or capture</td>
-      <td>You choose or capture it and agree to the in-app AI-consent prompt before it is sent to Keeper's backend and Google Gemini. Analysis requests also include your Keeper Plus access status; enhancement requests include the requested edit settings.</td>
-      <td>To analyze how the photo reads and, when requested, return an enhancement preview and style recommendations.</td>
-      <td>Keeper does not save the uploaded photo in its product database. Google may retain submitted prompts and context (which can include the photo) and responses for up to 55 days for abuse monitoring; authorized staff may review content flagged for policy violations.</td>
-    </tr>
-    <tr>
-      <td>Random anonymous device ID</td>
-      <td>Generated on-device the first time you open the app and saved in app storage. It is visible and copyable in Settings → Your data → Anonymous device ID.</td>
-      <td>To enforce monthly analysis quotas and associate anonymous analytics events with this Keeper installation. It is not a login credential and is not sent to Google with your photo.</td>
-      <td>Stored on your device until you uninstall Keeper. Matching quota and analytics records are retained up to 13 months unless you request deletion within 30 days. Resetting the app generates a new ID.</td>
-    </tr>
-    <tr>
-      <td>Analysis result (score, recipe, recommendations)</td>
-      <td>Returned to the app by our backend.</td>
-      <td>Shown to you on the Results screen and stored locally on your device.</td>
-      <td>Held on your device only. Deleted when you uninstall the app or clear app storage.</td>
-    </tr>
-    <tr>
-      <td>Quota records</td>
-      <td>Created server-side when you run an analysis.</td>
-      <td>To enforce the monthly free-analysis limit.</td>
-      <td>Anonymous ID + month + count, kept for up to 13 months for quota enforcement, then deleted.</td>
-    </tr>
-    <tr>
-      <td>Anonymous analytics events</td>
-      <td>Logged when you take key actions (e.g. start analysis, complete analysis, view paywall). We strip any keys that look like file paths or URLs before logging.</td>
-      <td>To understand how app flows perform. Individual event rows are keyed to the random Keeper ID and analyzed in aggregate.</td>
-      <td>Stored in our Supabase database keyed by your anonymous ID, retained up to 13 months.</td>
-    </tr>
-    <tr>
-      <td>Purchase state</td>
-      <td>Processed by Apple StoreKit and RevenueCat when you buy or restore an in-app purchase. Keeper also records purchase-flow events in its anonymous analytics system.</td>
-      <td>To retrieve available products and determine whether Keeper Plus access is active.</td>
-      <td>Apple and RevenueCat handle transaction records under their own policies. Keeper stores anonymous purchase-flow events, including the selected product or resulting entitlement, under the random Keeper ID for up to 13 months.</td>
-    </tr>
-    <tr>
-      <td>Crash reports (optional)</td>
-      <td>Collected automatically by Sentry if and only if the build was compiled with Sentry credentials.</td>
-      <td>To diagnose crashes.</td>
-      <td>Retained by Sentry per their policy. Contains a stack trace and device class, never your photo or your anonymous ID.</td>
-    </tr>
-  </tbody>
-</table>
-
-<h2>3. We do not collect</h2>
-<ul>
-  <li>Your name, email, phone number, or address.</li>
-  <li>Your Apple ID or other account credentials. Apple handles App Store purchases under its privacy policy; Keeper has no account sign-in.</li>
-  <li>Your contacts, calendar, microphone, location, or health data.</li>
-  <li>Advertising identifiers. Keeper does not use the iOS App Tracking Transparency framework because we do not track you across apps or websites.</li>
-</ul>
-
-<h2>4. Third-party processors</h2>
-<p>
-Keeper shares the data above with a small set of service providers strictly to deliver the app. Each provider
-is bound by a written data-processing agreement and provides protections equivalent to those described here.
-</p>
-<table>
-  <thead>
-    <tr><th>Provider</th><th>What they receive</th><th>Their role</th><th>Policy</th></tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Google LLC (Gemini API)</td>
-      <td>The photo and prompt for the requested analysis or enhancement. Google may retain prompt context (which can include the photo) and responses for up to 55 days for abuse monitoring.</td>
-      <td>Runs the AI analysis or enhancement and returns the result. Google may retain submitted prompts and context, including images, and responses for up to 55 days for abuse monitoring; authorized staff may review content flagged for policy violations.</td>
-      <td><a href="https://ai.google.dev/gemini-api/terms">ai.google.dev/gemini-api/terms</a></td>
-    </tr>
-    <tr>
-      <td>Supabase Inc.</td>
-      <td>The request payload while it is processed (photo and anonymous ID), analysis entitlement status or enhancement edit settings, plus stored quota rows and anonymous analytics events.</td>
-      <td>Hosts the backend Edge Functions and Postgres database that proxy requests to Google and store quota and analytics events.</td>
-      <td><a href="https://supabase.com/privacy">supabase.com/privacy</a></td>
-    </tr>
-    <tr>
-      <td>RevenueCat, Inc.</td>
-      <td>StoreKit transaction information and RevenueCat's SDK-generated anonymous App User ID. Keeper does not configure RevenueCat with the separate Keeper ID used for quota and analytics.</td>
-      <td>Validates Apple receipts and tells the app whether you are entitled to the unlock.</td>
-      <td><a href="https://www.revenuecat.com/privacy">revenuecat.com/privacy</a></td>
-    </tr>
-    <tr>
-      <td>Functional Software, Inc. d/b/a Sentry (optional)</td>
-      <td>Crash stack traces and device class — only when the build is compiled with Sentry credentials.</td>
-      <td>Aggregates crash reports for our triage.</td>
-      <td><a href="https://sentry.io/privacy/">sentry.io/privacy</a></td>
-    </tr>
-    <tr>
-      <td>Apple Inc.</td>
-      <td>In-app purchase transactions and standard App Store telemetry.</td>
-      <td>Operates the App Store and StoreKit.</td>
-      <td><a href="https://www.apple.com/legal/privacy/">apple.com/legal/privacy</a></td>
-    </tr>
-  </tbody>
-</table>
-
-<h2>5. Consent to AI analysis</h2>
-<p>
-Before Keeper sends a selected photo for AI processing, the app shows a disclosure sheet naming Google Gemini and explaining that the photo and random Keeper ID go to our backend. Analysis requests also include your Keeper Plus status; enhancement requests include edit settings. Google receives the photo and prompt, not the Keeper ID or access status. The sheet describes Google's possible retention of prompt context and responses for up to 55 days for abuse monitoring. You must tap "Agree and continue" before the photo is sent. Tapping "Not now" cancels the request. Your consent decision is stored locally.
-</p>
-<p>You can decline the disclosure sheet at any time; this cancels the requested photo transfer. To request deletion of Keeper's server-side quota and analytics records, contact us as described in “Your rights.”</p>
-
-<h2>6. Children</h2>
-<p>
-Keeper is rated 4+ and is not directed at children under 13. We do not knowingly collect data from children
-under 13. If you believe a child has used the app and you would like us to delete their anonymous ID, contact us.
-</p>
-
-<h2>7. Your rights</h2>
-<p>
-Depending on where you live (including under the EU/UK GDPR and the California CCPA), you may have the right to
-request a copy of the personal data we hold about you, to correct it, to delete it, or to object to certain
-processing. You can find and copy your random Keeper ID in Settings → Your data → Anonymous device ID. Include it with your deletion or access request so we can locate the related quota and analytics rows. We will respond within 30 days. This request covers Keeper's server-side quota and analytics records. Results and cached enhanced images in Keeper are removed when you clear app storage or uninstall the app; original photos in your photo library remain until you delete them there.
-</p>
-<p>We do not sell or "share" personal information for cross-context behavioral advertising, as those terms are defined under the CCPA.</p>
-
-<h2>8. Security</h2>
-<p>
-Traffic between the app and our backend is encrypted with TLS. Photos are sent in HTTPS request bodies and are not saved in Keeper's product database. Google's Gemini API may retain prompts and context (including uploaded images) and responses for up to 55 days for abuse monitoring. Stored quota and analytics records are encrypted at rest by Supabase.
-</p>
-
-<h2>9. International transfers</h2>
-<p>
-Our backend runs on Supabase infrastructure in the United States. Google's Gemini API processes data on Google infrastructure that may include locations outside your country. By using Keeper, you consent to your data being transferred to these jurisdictions, subject to the protections described here.
-</p>
-
-<h2>10. Changes</h2>
-<p>
-We may update this policy. We will change the "Effective" date above and, for material changes, present an
-in-app notice the next time you open the app.
-</p>
-
-<h2>11. Contact</h2>
-<p>
-Privacy questions, access or deletion requests, or other concerns:
-<a href="mailto:lachhman.anthony@gmail.com">lachhman.anthony@gmail.com</a>. See <a href="support.html">Keeper Support</a> for help finding your anonymous ID and other common questions.
-</p>
-
-<p style="margin-top:2rem;font-size:0.85rem;color:#888;">© 2026 Anthony Lachhman.</p>
-
-</body>
-</html>
+<p>Provider processing and retention follow the applicable provider agreements and account configuration. We do not promise zero retention or that every provider never uses data for model improvement. Providers may process data outside your country.</p>
+<h2>Your choices and requests</h2>
+<p>You can decline an AI upload, keep your original, remove an edited recovery copy, manage your photo-library permissions in iOS, and cancel a subscription in Apple Settings. Depending on where you live, you may have rights to access, correct, delete or restrict processing of your information.</p>
+<p>For a privacy request, open Keeper Settings and copy the “Ratings &amp; editing support” ID. Include the separate anonymous device ID if your request concerns the original coaching tools. Email <a href="mailto:lachhman.anthony@gmail.com">lachhman.anthony@gmail.com</a>. We may need to verify control of the relevant session; an ID by itself is not proof of ownership.</p>
+<h2>Security</h2>
+<p>Keeper uses encrypted network connections, authenticated service requests, restricted database access and private result storage. Download links are temporary and should not be shared with people you do not want to access the photo. No system can guarantee absolute security.</p>
+<h2>Age eligibility</h2><p>The new AI services are intended for adults aged 18 or older. Do not submit photos depicting minors. Contact support if you believe a child’s information was submitted.</p>
+<h2>Changes and contact</h2>
+<p>We will update this page when our practices change. Privacy and support contact: <a href="mailto:lachhman.anthony@gmail.com">lachhman.anthony@gmail.com</a>.</p>
+<p>© 2026 Anthony Lachhman. <a href="terms.html">Terms</a> · <a href="support.html">Support</a></p>
+</body></html>
